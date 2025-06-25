@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>큐브세븐틴 디지털 워크플로우 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- 
+    Infographic Plan Summary:
+    - Narrative: Visualize the journey of a dental prosthesis through Cube17's digital ecosystem, from clinic order to final procedure, highlighting efficiency gains.
+    - Structure: Header, Introduction, Main Workflow (HTML/CSS Flowchart), Key Benefits (Charts/KPIs), Solution Spotlight, Footer.
+    - Color Palette: Brilliant Blues (#003F5C, #34657F, #668BA5, #99B2CB, #CCE0F1) for a professional, tech-focused aesthetic.
+    
+    Visualization Choices Summary:
+    - Main Process Flow: Goal: Organize. Chosen Visualization: HTML/CSS Flowchart with Tailwind. Justification: To represent a multi-step process with a conditional loop, adhering to the NO SVG/Mermaid JS constraint. Method: Structured HTML divs, flexbox, and borders.
+    - Turnaround Time: Goal: Compare. Chosen Visualization: Bar Chart. Justification: Directly compare two distinct workflows (Traditional vs. Cube17). Library: Chart.js (Canvas).
+    - Efficiency Gains: Goal: Inform/Compare. Chosen Visualization: Donut Chart. Justification: Show the composition of AI-driven efficiency improvements. Library: Chart.js (Canvas).
+    - Solution Roles: Goal: Compare. Chosen Visualization: Bar Chart. Justification: To compare the involvement of each software product across the workflow. Library: Chart.js (Canvas).
+
+    Constraint Confirmation:
+    - NEITHER Mermaid JS NOR SVG were used in this output. All visualizations are rendered using either Chart.js on a <canvas> element or structured HTML and CSS with Tailwind.
+    -->
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F0F4F8; 
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-card {
+            background-color: white;
+            border: 1px solid #CCE0F1;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .flow-connector::after {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 3rem;
+            background-color: #668BA5;
+            margin: 0.5rem auto;
+        }
+        .flow-arrow::after {
+            content: '▼';
+            font-size: 1.5rem;
+            color: #668BA5;
+        }
+        .flow-line-horizontal {
+            height: 2px;
+            background-color: #668BA5;
+        }
+        .flow-line-vertical {
+            width: 2px;
+            background-color: #668BA5;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-[#003F5C] text-white text-center py-12 px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-2">큐브세븐틴 디지털 치과 솔루션</h1>
+        <p class="text-lg md:text-xl text-[#CCE0F1]">AI와 클라우드로 혁신하는 차세대 보철 제작 워크플로우</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="workflow" class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-[#003F5C] mb-2">End-to-End 디지털 워크플로우</h2>
+                <p class="max-w-3xl mx-auto text-gray-600">치과에서 최종 시술까지, 큐브세븐틴의 솔루션이 모든 단계를 완벽하게 연결하여 정확하고 빠른 보철 제작을 실현합니다.</p>
+            </div>
+
+            <div class="flex flex-col items-center">
+                
+                <div class="flow-card w-full max-w-md p-4 rounded-lg text-center">
+                    <div class="font-bold text-xl text-[#34657F]">① 치과 (Dental Clinic)</div>
+                    <p class="mt-2">🦷 <span class="font-semibold">[NeXchart]</span>를 이용해 음성인식으로 주문서를 작성하고 환자 구강을 스캔, <span class="font-semibold">[NeXways]</span> 클라우드에 등록하여 데이터 공유를 시작합니다.</p>
+                </div>
+
+                <div class="flow-connector flow-arrow"></div>
+
+                <div class="relative flow-card w-full max-w-md p-4 rounded-lg text-center">
+                    <div class="font-bold text-xl text-[#34657F]">② 자동화 시스템 (AI & Cloud)</div>
+                    <p class="mt-2">🤖 <span class="font-semibold">[NeXAI]</span>가 스캔 데이터의 정합성을 즉시 체크하고, 이상이 없을 시 크라운 디자인을 자동 생성하여 <span class="font-semibold">[NeXways]</span>에 등록합니다.</p>
+                    <div class="absolute top-1/2 -right-4 md:-right-8 transform -translate-y-1/2 flex items-center">
+                        <div class="w-8 md:w-16 border-t-2 border-dashed border-red-500"></div>
+                        <div class="text-red-500 text-2xl transform rotate-90">▲</div>
+                        <div class="absolute -right-2 top-10 md:top-12 w-28 text-center text-sm font-semibold text-red-600 bg-white p-1 rounded border border-red-200 shadow-lg">이슈 발생 시<br>치과에 알림 & 재스캔 요청</div>
+                    </div>
+                </div>
+
+                <div class="flow-connector flow-arrow"></div>
+                
+                <div class="flow-card w-full max-w-md p-4 rounded-lg text-center">
+                    <div class="font-bold text-xl text-[#34657F]">③ 큐브 디자인센터</div>
+                    <p class="mt-2">🖥️ 디자이너가 <span class="font-semibold">[NeXdesign]</span>으로 AI 디자인을 검토/수정하고 최종 CAD 데이터를 생성, <span class="font-semibold">[NeXways]</span>에 등록합니다.</p>
+                </div>
+
+                <div class="flow-connector flow-arrow"></div>
+
+                <div class="flow-card w-full max-w-md p-4 rounded-lg text-center">
+                    <div class="font-bold text-xl text-[#34657F]">④ 기공소 할당 및 제작</div>
+                    <p class="mt-2">🔬 디자인센터에서 보철물 종류에 따라 기공소에 작업을 할당하면, <span class="font-semibold">[NeXLAB]</span>에 자동으로 연계됩니다. 기공소는 데이터를 다운로드하여 밀링 등 제작을 진행합니다.</p>
+                </div>
+
+                <div class="flow-connector flow-arrow"></div>
+
+                <div class="flow-card w-full max-w-md p-4 rounded-lg text-center">
+                    <div class="font-bold text-xl text-[#34657F]">⑤ 배송 및 최종 시술</div>
+                    <p class="mt-2">🚚 기공소에서 <span class="font-semibold">[NeXLAB]</span>으로 작업 완료를 알리고 치과로 보철물을 배송합니다. 치과는 최종 보철물을 환자에게 시술합니다.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="benefits" class="mb-16 bg-white p-6 md:p-10 rounded-xl shadow-lg">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-[#003F5C] mb-2">데이터로 보는 혁신</h2>
+                <p class="max-w-3xl mx-auto text-gray-600">디지털 전환이 가져오는 실질적인 효과를 확인해 보세요.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                
+                <div class="flex flex-col items-center justify-center p-6 rounded-lg bg-[#E3F2FD] border-2 border-[#CCE0F1]">
+                    <h3 class="text-xl font-bold text-[#003F5C] mb-2">총 제작 기간 단축</h3>
+                    <p class="text-6xl font-extrabold text-[#34657F] my-4">40<span class="text-4xl">%</span>▼</p>
+                    <p class="text-gray-700">전통 방식 대비 제작 및 배송에 소요되는 총 시간을 최대 40% 단축하여 환자와 치과 모두의 만족도를 높입니다.</p>
+                </div>
+
+                <div class="p-6 rounded-lg bg-[#E3F2FD] border-2 border-[#CCE0F1]">
+                    <h3 class="text-xl font-bold text-[#003F5C] mb-4">워크플로우별 소요 시간</h3>
+                     <div class="chart-container h-64 md:h-72">
+                        <canvas id="turnaroundTimeChart"></canvas>
+                    </div>
+                    <p class="text-gray-700 mt-4">디지털 시스템을 통해 불필요한 대기 시간과 재작업률을 획기적으로 줄여 신속한 보철물 제작이 가능합니다.</p>
+                </div>
+                
+                <div class="p-6 rounded-lg bg-[#E3F2FD] border-2 border-[#CCE0F1] md:col-span-2 lg:col-span-1">
+                    <h3 class="text-xl font-bold text-[#003F5C] mb-4">AI 기반 효율성 증대</h3>
+                    <div class="chart-container h-64 md:h-72">
+                        <canvas id="efficiencyDonutChart"></canvas>
+                    </div>
+                    <p class="text-gray-700 mt-4">AI가 데이터 검수와 디자인 단계를 자동화하여 전문가가 더 중요한 작업에 집중할 수 있도록 돕습니다.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="solutions">
+             <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-[#003F5C] mb-2">큐브세븐틴 솔루션 생태계</h2>
+                <p class="max-w-3xl mx-auto text-gray-600">각 단계에 최적화된 전문 솔루션들이 유기적으로 연동되어 시너지를 창출합니다.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+                <div class="p-4 bg-white rounded-lg shadow-md border-t-4 border-[#003F5C]"><h4 class="font-bold">NeXchart</h4><p class="text-sm">치과 주문/차트</p></div>
+                <div class="p-4 bg-white rounded-lg shadow-md border-t-4 border-[#34657F]"><h4 class="font-bold">NeXways</h4><p class="text-sm">클라우드 공유</p></div>
+                <div class="p-4 bg-white rounded-lg shadow-md border-t-4 border-[#668BA5]"><h4 class="font-bold">NeXAI</h4><p class="text-sm">AI 데이터 분석/디자인</p></div>
+                <div class="p-4 bg-white rounded-lg shadow-md border-t-4 border-[#99B2CB]"><h4 class="font-bold">NeXdesign</h4><p class="text-sm">디자인센터용 CAD</p></div>
+                <div class="p-4 bg-white rounded-lg shadow-md border-t-4 border-[#CCE0F1]"><h4 class="font-bold">NeXLAB</h4><p class="text-sm">기공소 작업관리</p></div>
+            </div>
+             <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-bold text-center text-[#003F5C] mb-4">솔루션별 워크플로우 기여도</h3>
+                <div class="chart-container">
+                    <canvas id="solutionRolesChart"></canvas>
+                </div>
+                <p class="text-center text-gray-700 mt-4"><span class="font-semibold">[NeXways]</span> 클라우드를 중심으로 모든 데이터가 안전하고 신속하게 공유되어 협업을 극대화합니다.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#003F5C] text-white text-center mt-16 py-8 px-4">
+        <p class="font-semibold">Cube17, Inc.</p>
+        <p class="text-sm text-[#CCE0F1]">Leading the future of Digital Dentistry</p>
+    </footer>
+
+    <script>
+        const brilliantBlues = ['#003F5C', '#34657F', '#668BA5', '#99B2CB', '#CCE0F1'];
+        const brilliantBluesReversed = [...brilliantBlues].reverse();
+
+        function wrapLabel(label, maxLength) {
+            if (typeof label !== 'string' || label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        }
+        
+        const tooltipTitleCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                },
+                legend: {
+                    labels: {
+                        color: '#003F5C',
+                        font: {
+                           size: 14
+                        }
+                    }
+                }
+            }
+        };
+
+        const turnaroundTimeCtx = document.getElementById('turnaroundTimeChart').getContext('2d');
+        new Chart(turnaroundTimeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['전통 방식', '큐브세븐틴 방식'],
+                datasets: [{
+                    label: '소요 기간 (일)',
+                    data: [10, 6],
+                    backgroundColor: [brilliantBlues[2], brilliantBlues[0]],
+                    borderColor: [brilliantBlues[1], brilliantBlues[1]],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...tooltipTitleCallback,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#003F5C' },
+                        grid: { color: '#E0E0E0' }
+                    },
+                    x: {
+                        ticks: { color: '#003F5C' },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        const efficiencyDonutCtx = document.getElementById('efficiencyDonutChart').getContext('2d');
+        new Chart(efficiencyDonutCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['AI 디자인 자동화', 'AI 데이터 검수', '수작업 감소'],
+                datasets: [{
+                    label: '효율 증대 요인',
+                    data: [40, 35, 25],
+                    backgroundColor: [brilliantBlues[0], brilliantBlues[2], brilliantBlues[4]],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                 ...tooltipTitleCallback,
+                maintainAspectRatio: false,
+            }
+        });
+
+        const solutionRolesCtx = document.getElementById('solutionRolesChart').getContext('2d');
+        const solutionLabels = ['NeXchart', 'NeXways', 'NeXAI', 'NeXdesign', 'NeXLAB'];
+        new Chart(solutionRolesCtx, {
+            type: 'bar',
+            data: {
+                labels: solutionLabels.map(label => wrapLabel(label, 16)),
+                datasets: [{
+                    label: '워크플로우 기여도 (활용 예측)',
+                    data: [2, 5, 4, 3, 2],
+                    backgroundColor: brilliantBluesReversed,
+                    borderColor: brilliantBlues[1],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...tooltipTitleCallback,
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        ticks: { color: '#003F5C' },
+                        grid: { display: false }
+                    },
+                    x: {
+                        ticks: { color: '#003F5C' },
+                        grid: { color: '#E0E0E0' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
